@@ -167,76 +167,6 @@ func (m *MsgSendGift) Raw() []byte {
 	return m.raw
 }
 
-// SendGift 部分interface{}抓取不到有效的信息，只能先留着
-//
-/*
-	{
-	  "discount_price": 100,
-	  "giftName": "牛哇牛哇",
-	  "gold": 0,
-	  "guard_level": 0,
-	  "remain": 0,
-	  "silver": 0,
-	  "super_gift_num": 4,
-	  "top_list": null,
-	  "biz_source": "xlottery-anchor",
-	  "combo_total_coin": 400,
-	  "giftType": 0,
-	  "magnification": 1,
-	  "medal_info": {
-		"medal_name": "吉祥草",
-		"special": "",
-		"anchor_roomid": 0,
-		"anchor_uname": "",
-		"medal_color_border": 6067854,
-		"medal_color_end": 6067854,
-		"medal_color_start": 6067854,
-		"medal_level": 4,
-		"target_id": 2920960,
-		"guard_level": 0,
-		"icon_id": 0,
-		"is_lighted": 1,
-		"medal_color": 6067854
-	  },
-	  "name_color": "",
-	  "price": 100,
-	  "super": 0,
-	  "tag_image": "",
-	  "total_coin": 100,
-	  "uname": "余烬的圆舞曲",
-	  "blind_gift": null,
-	  "rnd": "1635849011111500002",
-	  "action": "投喂",
-	  "broadcast_id": 0,
-	  "effect": 0,
-	  "giftId": 31039,
-	  "is_special_batch": 0,
-	  "tid": "1635849011111500002",
-	  "batch_combo_id": "batch:gift:combo_id:9184735:2920960:31039:1635849007.7560",
-	  "float_sc_resource_id": 0,
-	  "original_gift_name": "",
-	  "batch_combo_send": null,
-	  "is_first": false,
-	  "num": 1,
-	  "rcost": 189509940,
-	  "uid": 9184735,
-	  "beatId": "",
-	  "combo_send": null,
-	  "combo_stay_time": 3,
-	  "dmscore": 32,
-	  "svga_block": 0,
-	  "timestamp": 1635849011,
-	  "coin_type": "gold",
-	  "combo_resources_id": 1,
-	  "crit_prob": 0,
-	  "demarcation": 1,
-	  "draw": 0,
-	  "effect_block": 0,
-	  "face": "http://i1.hdslb.com/bfs/face/80cd97607e8ab30acc768047db37a17c9270ec76.jpg",
-	  "send_master": null,
-	  "super_batch_gift_num": 4
-	}
-*/
 type SendGift struct {
 	Action         string `json:"action"`
 	BatchComboID   string `json:"batch_combo_id"`
@@ -419,68 +349,6 @@ func (m *MsgSuperChatMessage) Raw() []byte {
 	return m.raw
 }
 
-/*
-	{
-	  "background_bottom_color": "#427D9E",
-	  "token": "D22854F7",
-	  "background_color_end": "#29718B",
-	  "background_image": "https://i0.hdslb.com/bfs/live/a712efa5c6ebc67bafbe8352d3e74b820a00c13e.png",
-	  "background_icon": "",
-	  "background_price_color": "#7DA4BD",
-	  "dmscore": 128,
-	  "id": 2575658,
-	  "user_info": {
-	    "user_level": 20,
-	    "face_frame": "http://i0.hdslb.com/bfs/live/9b3cfee134611c61b71e38776c58ad67b253c40a.png",
-	    "guard_level": 2,
-	    "level_color": "#61c05a",
-	    "manager": 0,
-	    "uname": "卡纸哥我宣你",
-	    "title": "title-111-1",
-	    "face": "http://i0.hdslb.com/bfs/face/6badd87b9bf8c13c90fcb2c2b1b93b01e4b02664.jpg",
-	    "is_main_vip": 1,
-	    "is_svip": 0,
-	    "is_vip": 0,
-	    "name_color": "#E17AFF"
-	  },
-	  "is_send_audit": 1,
-	  "price": 50,
-	  "background_color": "#DBFFFD",
-	  "color_point": 0.7,
-	  "gift": {
-	    "gift_id": 12000,
-	    "gift_name": "醒目留言",
-	    "num": 1
-	  },
-	  "medal_info": {
-	    "target_id": 8739477,
-	    "anchor_roomid": 7777,
-	    "anchor_uname": "老实憨厚的笑笑",
-	    "guard_level": 2,
-	    "medal_color": "#6154c",
-	    "medal_color_end": 6850801,
-	    "medal_level": 27,
-	    "special": "",
-	    "icon_id": 0,
-	    "is_lighted": 1,
-	    "medal_color_border": 16771156,
-	    "medal_color_start": 398668,
-	    "medal_name": "德云色"
-	  },
-	  "trans_mark": 0,
-	  "ts": 1635749378,
-	  "background_color_start": "#4EA4C5",
-	  "end_time": 1635749498,
-	  "message_font_color": "#A3F6FF",
-	  "rate": 1000,
-	  "message_trans": "",
-	  "start_time": 1635749378,
-	  "is_ranked": 1,
-	  "message": "熊神可以打一拳旁边那个大胖子吗",
-	  "time": 120,
-	  "uid": 12777723
-	}
-*/
 type SuperChatMessage struct {
 	BackgroundBottomColor string `json:"background_bottom_color"`
 	Token                 string `json:"token"`
@@ -564,20 +432,6 @@ func (m *MsgHotRankSettlement) Raw() []byte {
 	return m.raw
 }
 
-/*
-	{
-	  "dm_msg": "恭喜主播 <% 老实憨厚的笑笑 %> 荣登限时热门榜网游榜top3! 即将获得热门流量推荐哦！",
-	  "dmscore": 144,
-	  "timestamp": 1635748200,
-	  "uname": "老实憨厚的笑笑",
-	  "url": "https://live.bilibili.com/p/html/live-app-hotrank/result.html?is_live_half_webview=1&hybrid_half_ui=1,5,250,200,f4eefa,0,30,0,0,0;2,5,250,200,f4eefa,0,30,0,0,0;3,5,250,200,f4eefa,0,30,0,0,0;4,5,250,200,f4eefa,0,30,0,0,0;5,5,250,200,f4eefa,0,30,0,0,0;6,5,250,200,f4eefa,0,30,0,0,0;7,5,250,200,f4eefa,0,30,0,0,0;8,5,250,200,f4eefa,0,30,0,0,0&areaId=2&cache_key=d04fe4e6d0f2bc24c1a5acc63f574b68",
-	  "area_name": "网游",
-	  "cache_key": "d04fe4e6d0f2bc24c1a5acc63f574b68",
-	  "rank": 3,
-	  "face": "http://i0.hdslb.com/bfs/face/d92282ac664afffd0ef38c275f3fca17a9567d5a.jpg",
-	  "icon": "https://i0.hdslb.com/bfs/live/65dbe013f7379c78fc50dfb2fd38d67f5e4895f9.png"
-	}
-*/
 type HotRankSettlement struct {
 	DmMsg     string `json:"dm_msg"`
 	DmScore   int    `json:"dmscore"`
@@ -613,17 +467,6 @@ func (m *MsgOnlineRankTop3) Raw() []byte {
 	return m.raw
 }
 
-/*
-	{
-	  "dmscore": 112,
-	  "list": [
-		{
-		  "msg": "恭喜 <%你们有多腐%> 成为高能榜",
-		  "rank": 2
-		}
-	  ]
-	}
-*/
 type OnlineRankTop3 struct {
 	DmScore int `json:"dmscore"`
 	List    []struct {
@@ -654,14 +497,6 @@ func (m *MsgRoomBlockMsg) Raw() []byte {
 	return m.raw
 }
 
-/*
-	{
-	  "uname": "白绫彡",
-	  "dmscore": 30,
-	  "operator": 1,
-	  "uid": 53342046
-	}
-*/
 type RoomBlockMsg struct {
 	Uname    string `json:"uname"`
 	DmScore  int    `json:"dmscore"`
@@ -716,69 +551,6 @@ func (m *MsgOnlineRankV2) Raw() []byte {
 	return m.raw
 }
 
-/*
-	{
-	  "list": [
-		{
-		  "guard_level": 2,
-		  "uid": 277278853,
-		  "face": "http://i1.hdslb.com/bfs/face/59839130848b8f8d99f8c649f7897ac7f406a052.jpg",
-		  "score": "15980",
-		  "uname": "勤俭持家的席撒",
-		  "rank": 1
-		},
-		{
-		  "uid": 12777723,
-		  "face": "http://i0.hdslb.com/bfs/face/6badd87b9bf8c13c90fcb2c2b1b93b01e4b02664.jpg",
-		  "score": "2500",
-		  "uname": "卡纸哥我宣你",
-		  "rank": 2,
-		  "guard_level": 2
-		},
-		{
-		  "uid": 19229891,
-		  "face": "http://i2.hdslb.com/bfs/face/3925926f11983d7c2e1736e429aa171761493040.jpg",
-		  "score": "1580",
-		  "uname": "大象12183",
-		  "rank": 3,
-		  "guard_level": 3
-		},
-		{
-		  "rank": 4,
-		  "guard_level": 3,
-		  "uid": 271376887,
-		  "face": "http://i1.hdslb.com/bfs/face/84ef7024aef33ad5d790494130c4081e3a872169.jpg",
-		  "score": "1380",
-		  "uname": "w蓄意轰拳w"
-		},
-		{
-		  "face": "http://i0.hdslb.com/bfs/face/b0d4640c49ef04f630b103edbec1a277b912fbe1.jpg",
-		  "score": "1000",
-		  "uname": "Dys莫的命",
-		  "rank": 5,
-		  "guard_level": 3,
-		  "uid": 16495374
-		},
-		{
-		  "uid": 601557387,
-		  "face": "http://i0.hdslb.com/bfs/face/e5cb2f45e257f337c756521bd73c56814443c8c0.jpg",
-		  "score": "1000",
-		  "uname": "秃了送",
-		  "rank": 6,
-		  "guard_level": 3
-		},
-		{
-		  "guard_level": 3,
-		  "uid": 143379249,
-		  "face": "http://i0.hdslb.com/bfs/face/1d581ce73feb42a6d73839047d781c434652195b.jpg",
-		  "score": "1000",
-		  "uname": "小泉水噗噗",
-		  "rank": 7
-		}
-	  ],
-	  "rank_type": "gold-rank"
-	}
-*/
 type OnlineRankV2 struct {
 	List []struct {
 		GuardLevel int    `json:"guard_level"` // 3:舰长 2:提督 1:总督?
@@ -813,52 +585,6 @@ func (m *MsgNoticeMsg) Raw() []byte {
 	return m.raw
 }
 
-/*
-	{
-		"cmd": "NOTICE_MSG",
-		"business_id": "31087",
-		"full": {
-			"head_icon": "http://i0.hdslb.com/bfs/live/00f26756182b2e9d06c00af23001bc8e10da67d0.webp",
-			"tail_icon": "http://i0.hdslb.com/bfs/live/822da481fdaba986d738db5d8fd469ffa95a8fa1.webp",
-			"head_icon_fa": "http://i0.hdslb.com/bfs/live/77983005023dc3f31cd599b637c83a764c842f87.png",
-			"tail_icon_fa": "http://i0.hdslb.com/bfs/live/38cb2a9f1209b16c0f15162b0b553e3b28d9f16f.png",
-			"background": "#6098FFFF",
-			"highlight": "#FDFF2FFF",
-			"head_icon_fan": 36,
-			"tail_icon_fan": 4,
-			"color": "#FFFFFFFF",
-			"time": 20
-		},
-		"half": {
-			"time": 15,
-			"head_icon": "http://i0.hdslb.com/bfs/live/358cc52e974b315e83eee429858de4fee97a1ef5.png",
-			"tail_icon": "",
-			"background": "#7BB6F2FF",
-			"color": "#FFFFFFFF",
-			"highlight": "#FDFF2FFF"
-		},
-		"id": 2,
-		"link_url": "https://live.bilibili.com/5655865?accept_quality=%5B10000%2C150%5D&broadcast_type=0&current_qn=150&current_quality=150&is_room_feed=1&live_play_network=other&p2p_type=-2&playurl_h264=http%3A%2F%2Fd1--cn-gotcha03.bilivideo.com%2Flive-bvc%2F429443%2Flive_2257663_5953069_1500.flv%3Fexpires%3D1635753433%26len%3D0%26oi%3D0%26pt%3D%26qn%3D150%26trid%3D10004aaecf5169e74b51b5932933468e0364%26sigparams%3Dcdn%2Cexpires%2Clen%2Coi%2Cpt%2Cqn%2Ctrid%26cdn%3Dcn-gotcha03%26sign%3De0b8728896efe026833d99655b05c084%26p2p_type%3D4294967294%26src%3D5%26sl%3D1%26flowtype%3D1%26source%3Dbatch%26order%3D1%26machinezone%3Dylf%26sk%3D2935686d6cb9146c7a6a6a0b4e120e2594e074fa0760377f1a7a2b2fa0ee6443&playurl_h265=&quality_description=%5B%7B%22qn%22%3A10000%2C%22desc%22%3A%22%E5%8E%9F%E7%94%BB%22%7D%2C%7B%22qn%22%3A150%2C%22desc%22%3A%22%E9%AB%98%E6%B8%85%22%7D%5D&from=28003&extra_jump_from=28003&live_lottery_type=1",
-		"msg_common": "<%JamesTuT%>投喂:<%木之本切%>1个次元之城，点击前往TA的房间吧！",
-		"msg_self": "<%JamesTuT%>投喂:<%木之本切%>1个次元之城，快来围观吧！",
-		"msg_type": 2,
-		"name": "分区道具抽奖广播样式",
-		"real_roomid": 5655865,
-		"roomid": 5655865,
-		"scatter": {
-			"min": 0,
-			"max": 0
-		},
-		"shield_uid": -1,
-		"side": {
-			"head_icon": "",
-			"background": "",
-			"color": "",
-			"highlight": "",
-			"border": ""
-		}
-	}
-*/
 type NoticeMsg struct {
 	BusinessID string `json:"business_id"`
 	Full       struct {
@@ -961,19 +687,6 @@ func (m *MsgGuardBuy) Raw() []byte {
 	return m.raw
 }
 
-/*
-	{
-	  "guard_level": 2,
-	  "price": 1998000,
-	  "uid": 1751924,
-	  "num": 1,
-	  "gift_id": 10002,
-	  "gift_name": "提督",
-	  "start_time": 1635766940,
-	  "end_time": 1635766940,
-	  "username": "ppmann"
-	}
-*/
 type GuardBuy struct {
 	GuardLevel int    `json:"guard_level"`
 	Price      int    `json:"price"`
@@ -1008,55 +721,6 @@ func (m *MsgSuperChatMessageJPN) Raw() []byte {
 	return m.raw
 }
 
-/*
-	{
-	  "uid": "179810804",
-	  "is_ranked": 1,
-	  "medal_info": {
-		"medal_color": "#1a544b",
-		"icon_id": 0,
-		"target_id": 419220,
-		"special": "",
-		"anchor_uname": "神奇陆夫人",
-		"anchor_roomid": 115,
-		"medal_level": 22,
-		"medal_name": "陆夫人"
-	  },
-	  "user_info": {
-		"user_level": 20,
-		"level_color": "#61c05a",
-		"is_vip": 0,
-		"is_svip": 0,
-		"is_main_vip": 1,
-		"title": "0",
-		"uname": "悲剧携带者",
-		"face": "http://i2.hdslb.com/bfs/face/350aebb461ca8215b70c4cb4c1e8061ccb6d7db1.jpg",
-		"manager": 0,
-		"face_frame": "http://i0.hdslb.com/bfs/live/78e8a800e97403f1137c0c1b5029648c390be390.png",
-		"guard_level": 3
-	  },
-	  "id": "2576342",
-	  "message_jpn": "",
-	  "time": 60,
-	  "rate": 1000,
-	  "background_image": "https://i0.hdslb.com/bfs/live/a712efa5c6ebc67bafbe8352d3e74b820a00c13e.png",
-	  "background_icon": "",
-	  "background_price_color": "#7497CD",
-	  "token": "1B6E22FC",
-	  "gift": {
-		"num": 1,
-		"gift_id": 12000,
-		"gift_name": "醒目留言"
-	  },
-	  "price": 30,
-	  "message": "夫人，看你航天伴着好运来刷牛场，出了基德的财运，但是为什么mf才22（上限40啊",
-	  "background_color": "#EDF5FF",
-	  "background_bottom_color": "#2A60B2",
-	  "ts": 1635766505,
-	  "start_time": 1635766505,
-	  "end_time": 1635766565
-	}
-*/
 type SuperChatMessageJPN struct {
 	UID       string `json:"uid"`
 	IsRanked  int    `json:"is_ranked"`
@@ -1127,29 +791,6 @@ func (m *MsgUserToastMsg) Raw() []byte {
 	return m.raw
 }
 
-/*
-	{
-	  "guard_level": 2,
-	  "op_type": 1,
-	  "payflow_id": "2111011646287352179657661",
-	  "unit": "月",
-	  "is_show": 0,
-	  "num": 1,
-	  "price": 1998000,
-	  "start_time": 1635756388,
-	  "svga_block": 0,
-	  "user_show": true,
-	  "color": "#E17AFF",
-	  "end_time": 1635756388,
-	  "role_name": "提督",
-	  "toast_msg": "<%何图灵%> 开通了提督",
-	  "uid": 4497965,
-	  "anchor_show": true,
-	  "dmscore": 96,
-	  "target_guard_count": 12089,
-	  "username": "何图灵"
-	}
-*/
 type UserToastMsg struct {
 	GuardLevel       int    `json:"guard_level"`
 	OpType           int    `json:"op_type"`
@@ -1219,38 +860,6 @@ func (m *MsgAnchorLotStart) Raw() []byte {
 	return m.raw
 }
 
-/*
-	{
-	  "max_time": 600,
-	  "danmu": "好耶！",
-	  "gift_num": 1,
-	  "join_type": 0,
-	  "award_image": "",
-	  "gift_price": 0,
-	  "gift_id": 0,
-	  "gift_name": "",
-	  "goods_id": -99998,
-	  "room_id": 732602,
-	  "time": 599,
-	  "url": "https://live.bilibili.com/p/html/live-lottery/anchor-join.html?is_live_half_webview=1&hybrid_biz=live-lottery-anchor&hybrid_half_ui=1,5,100p,100p,000000,0,30,0,0,1;2,5,100p,100p,000000,0,30,0,0,1;3,5,100p,100p,000000,0,30,0,0,1;4,5,100p,100p,000000,0,30,0,0,1;5,5,100p,100p,000000,0,30,0,0,1;6,5,100p,100p,000000,0,30,0,0,1;7,5,100p,100p,000000,0,30,0,0,1;8,5,100p,100p,000000,0,30,0,0,1",
-	  "cur_gift_num": 0,
-	  "current_time": 1635849356,
-	  "lot_status": 0,
-	  "require_type": 2,
-	  "web_url": "https://live.bilibili.com/p/html/live-lottery/anchor-join.html",
-	  "goaway_time": 180,
-	  "is_broadcast": 1,
-	  "require_value": 1,
-	  "show_panel": 1,
-	  "status": 1,
-	  "id": 1890708,
-	  "require_text": "当前主播粉丝勋章至少1级",
-	  "award_num": 1,
-	  "asset_icon": "https://i0.hdslb.com/bfs/live/627ee2d9e71c682810e7dc4400d5ae2713442c02.png",
-	  "award_name": "648元现金红包",
-	  "send_gift_ensure": 0
-	}
-*/
 type AnchorLotStart struct {
 	MaxTime        int    `json:"max_time"`
 	Danmu          string `json:"danmu"`
@@ -1341,26 +950,6 @@ func (m *MsgAnchorLotAward) Raw() []byte {
 	return m.raw
 }
 
-/*
-	{
-	  "lot_status": 2,
-	  "url": "https://live.bilibili.com/p/html/live-lottery/anchor-join.html?is_live_half_webview=1&hybrid_biz=live-lottery-anchor&hybrid_half_ui=1,5,100p,100p,000000,0,30,0,0,1;2,5,100p,100p,000000,0,30,0,0,1;3,5,100p,100p,000000,0,30,0,0,1;4,5,100p,100p,000000,0,30,0,0,1;5,5,100p,100p,000000,0,30,0,0,1;6,5,100p,100p,000000,0,30,0,0,1;7,5,100p,100p,000000,0,30,0,0,1;8,5,100p,100p,000000,0,30,0,0,1",
-	  "web_url": "https://live.bilibili.com/p/html/live-lottery/anchor-join.html",
-	  "award_image": "",
-	  "award_name": "648元现金红包",
-	  "award_num": 1,
-	  "award_users": [
-		{
-		  "uname": "咲友",
-		  "face": "http://i0.hdslb.com/bfs/face/09b505910990d61a0777984f8a142b8e70485987.jpg",
-		  "level": 21,
-		  "color": 5805790,
-		  "uid": 29038770
-		}
-	  ],
-	  "id": 1890708
-	}
-*/
 type AnchorLotAward struct {
 	LotStatus  int    `json:"lot_status"`
 	Url        string `json:"url"`
@@ -1421,17 +1010,6 @@ func (m *MsgRoomChange) Raw() []byte {
 	return m.raw
 }
 
-/*
-	{
-	  "parent_area_id": 3,
-	  "area_name": "原神",
-	  "parent_area_name": "手游",
-	  "live_key": "181443822587250220",
-	  "sub_session_key": "181443822587250220sub_time:1635846195",
-	  "title": "快来直播间抽胡桃！托马！烈火拔刀！",
-	  "area_id": 321
-	}
-*/
 type RoomChange struct {
 	ParentAreaID   int    `json:"parent_area_id"`
 	AreaName       string `json:"area_name"`
@@ -1464,15 +1042,6 @@ func (m *MsgVoiceJoinList) Raw() []byte {
 	return m.raw
 }
 
-/*
-	{
-	  "room_id": 34348,
-	  "category": 1,
-	  "apply_count": 1,
-	  "red_point": 1,
-	  "refresh": 1
-	}
-*/
 type VoiceJoinList struct {
 	RoomID     int64 `json:"room_id"`
 	Category   int   `json:"category"`
@@ -1503,16 +1072,6 @@ func (m *MsgVoiceJoinRoomCountInfo) Raw() []byte {
 	return m.raw
 }
 
-/*
-	{
-	  "apply_count": 1,
-	  "notify_count": 0,
-	  "red_point": 0,
-	  "room_id": 34348,
-	  "root_status": 1,
-	  "room_status": 1
-	}
-*/
 type VoiceJoinRoomCountInfo struct {
 	ApplyCount  int   `json:"apply_count"`
 	NotifyCount int   `json:"notify_count"`
@@ -1976,44 +1535,6 @@ func (m *MsgInteractWord) Raw() []byte {
 	return m.raw
 }
 
-/*
-	{
-	  "tail_icon": 0,
-	  "uid": 13729609,
-	  "uname": "阿羽AYu-",
-	  "uname_color": "",
-	  "dmscore": 12,
-	  "score": 1635849011802,
-	  "spread_desc": "",
-	  "timestamp": 1635849011,
-	  "identities": [
-		1
-	  ],
-	  "is_spread": 0,
-	  "roomid": 732602,
-	  "trigger_time": 1635849010751414020,
-	  "contribution": {
-		"grade": 0
-	  },
-	  "fans_medal": {
-		"medal_color": 12632256,
-		"medal_color_start": 12632256,
-		"medal_level": 10,
-		"score": 10103,
-		"target_id": 67141,
-		"guard_level": 0,
-		"icon_id": 0,
-		"is_lighted": 0,
-		"medal_name": "C酱",
-		"special": "",
-		"anchor_roomid": 47867,
-		"medal_color_border": 12632256,
-		"medal_color_end": 12632256
-	  },
-	  "msg_type": 1,
-	  "spread_info": ""
-	}
-*/
 type InteractWord struct {
 	TailIcon     int    `json:"tail_icon"`
 	UID          int64  `json:"uid"`
