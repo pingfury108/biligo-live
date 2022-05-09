@@ -5,14 +5,53 @@ import (
 	"fmt"
 	"github.com/gorilla/websocket"
 	"github.com/iyear/biligo-live"
+	"github.com/urfave/cli/v2"
 	"log"
+	"os"
+	"os/signal"
+	"sync"
+	"syscall"
 	"time"
 )
 
-// 同 README.md 的快速开始
-
 func main() {
-	const room int64 = 573893
+	app := createCli()
+	err := app.Run(os.Args)
+	if err != nil {
+		log.Fatal(err)
+	}
+}
+
+func createCli() *cli.App {
+	app := &cli.App{
+		Name:   "biligo-live",
+		Usage:  "biligo-live",
+		Action: run,
+		Flags: []cli.Flag{
+			&cli.Int64Flag{
+				Name:  "room",
+				Value: 0,
+				Usage: "room ID",
+			},
+			&cli.Int64Flag{
+				Name:  "uid",
+				Value: 123456,
+				Usage: "user id",
+			},
+			&cli.StringFlag{
+				Name:  "user-key",
+				Value: "",
+				Usage: "user mark",
+			},
+		},
+	}
+	return app
+}
+
+func run(c *cli.Context) error {
+	room := c.Int64("room")
+	user_key := c.String("user-key")
+	uid := c.Int64("uid")
 
 	// 获取一个Live实例
 	// debug: debug模式，输出一些额外的信息
@@ -29,18 +68,21 @@ func main() {
 	// host: bilibili live ws host
 	if err := l.Conn(websocket.DefaultDialer, live.WsDefaultHost); err != nil {
 		log.Fatal(err)
-		return
+		return err
 	}
 
 	ctx, stop := context.WithCancel(context.Background())
+	var wg sync.WaitGroup
 
 	ifError := make(chan error)
+	wg.Add(1)
 	go func() {
+		defer wg.Done()
 		// 进入房间
 		// room: room id(真实ID，短号需自行转换)
 		// key: 用户标识，可留空
 		// uid: 用户UID，可随机生成
-		if err := l.Enter(ctx, room, "", 12345678); err != nil {
+		if err := l.Enter(ctx, room, user_key, uid); err != nil {
 			log.Println("Error Encountered: ", err)
 			log.Println("Room Disconnected")
 			ifError <- err
@@ -48,12 +90,21 @@ func main() {
 		}
 	}()
 
-	go rev(ctx, l)
+	wg.Add(1)
+	go func() {
+		defer wg.Done()
+		rev(ctx, l)
+	}()
 
-	// 15s的演示
-	after := time.After(15 * time.Second)
+	sc := make(chan os.Signal, 1)
+	signal.Notify(sc,
+		syscall.SIGINT,
+		syscall.SIGHUP,
+		syscall.SIGTERM,
+		syscall.SIGQUIT)
+
 	select {
-	case <-after:
+	case <-sc:
 		fmt.Println("I want to stop")
 		// 关闭ws连接与相关协程
 		stop()
@@ -62,8 +113,9 @@ func main() {
 		fmt.Println("I don't want to stop, but I encountered an error: ", err)
 		break
 	}
-	// 五秒時間讓他關閉其他 goroutine
-	<-time.After(5 * time.Second)
+
+	wg.Wait()
+	return nil
 }
 
 func rev(ctx context.Context, l *live.Live) {
