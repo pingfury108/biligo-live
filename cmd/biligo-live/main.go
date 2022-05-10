@@ -153,7 +153,7 @@ func handle(msg live.Msg) {
 			log.Println(err)
 			return
 		}
-		fmt.Printf("弹幕[%v]: (%s [%s]) || %s\n", time.UnixMilli(dm.Time), dm.Uname, dm.MedalName, dm.Content)
+		fmt.Printf("弹幕[%-33v]: %s[%s]   |   %s\n", time.UnixMilli(dm.Time), dm.Uname, dm.MedalName, dm.Content)
 	// 礼物消息
 	case *live.MsgSendGift:
 		g, err := msg.(*live.MsgSendGift).Parse()
