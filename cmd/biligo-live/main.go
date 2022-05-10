@@ -145,7 +145,7 @@ func handle(msg live.Msg) {
 	switch msg.(type) {
 	// 心跳回应直播间人气值
 	case *live.MsgHeartbeatReply:
-		log.Printf("hot: %d\n", msg.(*live.MsgHeartbeatReply).GetHot())
+		fmt.Printf("HOT: %d\n", msg.(*live.MsgHeartbeatReply).GetHot())
 	// 弹幕消息
 	case *live.MsgDanmaku:
 		dm, err := msg.(*live.MsgDanmaku).Parse()
@@ -153,7 +153,7 @@ func handle(msg live.Msg) {
 			log.Println(err)
 			return
 		}
-		fmt.Printf("弹幕: %s (%d:%s) 【%s】| %d\n", dm.Content, dm.MID, dm.Uname, dm.MedalName, dm.Time)
+		fmt.Printf("弹幕[%v]: (%s [%s]) || %s\n", time.UnixMilli(dm.Time), dm.Uname, dm.MedalName, dm.Content)
 	// 礼物消息
 	case *live.MsgSendGift:
 		g, err := msg.(*live.MsgSendGift).Parse()
@@ -161,7 +161,7 @@ func handle(msg live.Msg) {
 			log.Println(err)
 			return
 		}
-		fmt.Printf("%s: %s %d个%s\n", g.Action, g.Uname, g.Num, g.GiftName)
+		fmt.Printf("%s[%v]: %s %d个%s\n", g.Action, time.UnixMilli(g.Timestamp), g.Uname, g.Num, g.GiftName)
 	// 直播间粉丝数变化消息
 	case *live.MsgFansUpdate:
 		f, err := msg.(*live.MsgFansUpdate).Parse()
@@ -169,12 +169,12 @@ func handle(msg live.Msg) {
 			log.Println(err)
 			return
 		}
-		fmt.Printf("room: %d,fans: %d,fansClub: %d\n", f.RoomID, f.Fans, f.FansClub)
+		fmt.Printf("Room: %d,fans: %d,fansClub: %d\n", f.RoomID, f.Fans, f.FansClub)
 	// case:......
 
 	// General 表示live未实现的CMD命令，请自行处理raw数据。也可以提issue更新这个CMD
 	case *live.MsgGeneral:
 		//fmt.Println("unknown msg type|raw:", string(msg.Raw()))
-		fmt.Println()
+		//fmt.Println()
 	}
 }
