@@ -161,7 +161,7 @@ func handle(msg live.Msg) {
 			log.Println(err)
 			return
 		}
-		fmt.Printf("%s[%v]: %s %d个%s\n", g.Action, time.UnixMilli(g.Timestamp), g.Uname, g.Num, g.GiftName)
+		fmt.Printf("%s[%v]: %s %d个%s\n", g.Action, time.Unix(g.Timestamp, 0), g.Uname, g.Num, g.GiftName)
 	// 直播间粉丝数变化消息
 	case *live.MsgFansUpdate:
 		f, err := msg.(*live.MsgFansUpdate).Parse()
