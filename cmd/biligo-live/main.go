@@ -43,6 +43,11 @@ func createCli() *cli.App {
 				Value: "",
 				Usage: "user mark",
 			},
+			&cli.BoolFlag{
+				Name:  "debug",
+				Value: false,
+				Usage: "debug mode",
+			},
 		},
 	}
 	return app
@@ -58,7 +63,7 @@ func run(c *cli.Context) error {
 	// heartbeat: 心跳包发送间隔。不发送心跳包，70 秒之后会断开连接，通常每 30 秒发送 1 次
 	// cache: Rev channel 的缓存
 	// recover: panic recover后的操作函数
-	l := live.NewLive(true, 30*time.Second, 0, func(err error) {
+	l := live.NewLive(c.Bool("debug"), 30*time.Second, 0, func(err error) {
 		log.Println("panic:", err)
 		// do something...
 	})
@@ -169,6 +174,7 @@ func handle(msg live.Msg) {
 
 	// General 表示live未实现的CMD命令，请自行处理raw数据。也可以提issue更新这个CMD
 	case *live.MsgGeneral:
-		fmt.Println("unknown msg type|raw:", string(msg.Raw()))
+		//fmt.Println("unknown msg type|raw:", string(msg.Raw()))
+		fmt.Println()
 	}
 }
