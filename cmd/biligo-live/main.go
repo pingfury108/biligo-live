@@ -153,7 +153,7 @@ func handle(msg live.Msg) {
 			log.Println(err)
 			return
 		}
-		fmt.Printf("弹幕[%-33v]: %s[%s]   |   %s\n", time.UnixMilli(dm.Time), dm.Uname, dm.MedalName, dm.Content)
+		fmt.Printf("弹幕[%v]: (%s[%s]) %s\n", time.UnixMilli(dm.Time).Format("2006-01-02T15:04:05"), dm.Uname, dm.MedalName, dm.Content)
 	// 礼物消息
 	case *live.MsgSendGift:
 		g, err := msg.(*live.MsgSendGift).Parse()
@@ -161,7 +161,7 @@ func handle(msg live.Msg) {
 			log.Println(err)
 			return
 		}
-		fmt.Printf("%s[%v]: %s %d个%s\n", g.Action, time.Unix(g.Timestamp, 0), g.Uname, g.Num, g.GiftName)
+		fmt.Printf("%s[%v]: %s %d个%s\n", g.Action, time.Unix(g.Timestamp, 0).Format("2006-01-02T15:04:05"), g.Uname, g.Num, g.GiftName)
 	// 直播间粉丝数变化消息
 	case *live.MsgFansUpdate:
 		f, err := msg.(*live.MsgFansUpdate).Parse()
